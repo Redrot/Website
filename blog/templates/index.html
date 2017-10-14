@@ -3,7 +3,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lato|Lora" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
 <div class="wrapper">
-  <section class="header-container post" data-section-name="home">
+  <div class="header-container scrollable" data-section-name="home">
     <div class="tabs-container">
       <a href="#" class="tab">Home</a>
       <a href="#" class="tab">Math</a>
@@ -20,14 +20,22 @@
     </span>
     <div style="flex: 1"></div>
     <div class="recent-posts-container">
-      <a href="#" class="recent-post">Recent Post 1</a>
-      <a href="#" class="recent-post">Recent Post 2</a>
-      <a href="#" class="recent-post">Recent Post 3</a>
+      {% for post in posts %}
+        <a href="#{{ post.id }}" class="recent-post">{{ post.short_title }}</a>
+      {% endfor %}
     </div>
-  </section>
-  <div class="content-container">
-    {% block posts %}{% endblock %}
   </div>
+  {% for post in posts %}
+    <div class="post scrollable" data-section-name="{{ post.id }}">
+      <div class="post-header-container">
+        <h2>{{ post.title }}</h2>
+        <h3>{{ post.created_at }}</h3>
+      </div>
+      <p class="post-text">
+        {{ post.content|safe }}
+      </p>
+    </div>
+  {% endfor %}
 </div>
 <script src="{{ url_for('static', filename='jquery-2.1.1.js') }}"></script>
 <script src="{{ url_for('static', filename='jquery.scrollify.js') }}"></script>

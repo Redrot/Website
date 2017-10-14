@@ -1,5 +1,6 @@
 import os
 import sqlite3
+import markdown2
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 
 app = Flask(__name__)
@@ -63,4 +64,4 @@ def index():
     db = get_db()
     cur = db.execute('select * from posts order by id desc')
     posts = cur.fetchall()
-    return render_template('posts.html', posts=posts)
+    return render_template('index.html', posts=posts)

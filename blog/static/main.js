@@ -1,6 +1,6 @@
 $(function() {
   $.scrollify({
-		section: ".post",
+		section: ".scrollable",
     afterRender: function() {
       $(".recent-post").on("click", $.scrollify.move);
     }
