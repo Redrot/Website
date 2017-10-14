@@ -3,7 +3,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lato|Lora" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
 <div class="wrapper">
-  <div class="header-container">
+  <section class="header-container post" data-section-name="home">
     <div class="tabs-container">
       <a href="#" class="tab">Home</a>
       <a href="#" class="tab">Math</a>
@@ -24,8 +24,11 @@
       <a href="#" class="recent-post">Recent Post 2</a>
       <a href="#" class="recent-post">Recent Post 3</a>
     </div>
-  </div>
+  </section>
   <div class="content-container">
     {% block posts %}{% endblock %}
   </div>
 </div>
+<script src="{{ url_for('static', filename='jquery-2.1.1.js') }}"></script>
+<script src="{{ url_for('static', filename='jquery.scrollify.js') }}"></script>
+<script src="{{ url_for('static', filename='main.js') }}"></script>

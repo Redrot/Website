@@ -61,6 +61,6 @@ def close_db(error):
 @app.route('/')
 def index():
     db = get_db()
-    cur = db.execute('select title, content from posts order by id desc')
+    cur = db.execute('select * from posts order by id desc')
     posts = cur.fetchall()
     return render_template('posts.html', posts=posts)
