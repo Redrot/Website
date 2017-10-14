@@ -1,3 +1,4 @@
 graft blog/templates
 graft blog/static
 include blog/schema.sql
+include blog/seeds.sql
