@@ -1,6 +1,7 @@
 import os
 import sqlite3
 import markdown2
+from datetime import datetime
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 
 app = Flask(__name__)
@@ -65,3 +66,9 @@ def index():
     cur = db.execute('select * from posts order by id desc')
     posts = cur.fetchall()
     return render_template('index.html', posts=posts)
+
+
+@app.template_filter('strftime')
+def _jinja2_filter_datetime(date):
+    parsed = datetime.strptime(date, '%Y-%m-%d')
+    return parsed.strftime('%b %-d')
