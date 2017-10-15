@@ -24,13 +24,14 @@
     </div>
     <div class="posts-container">
       {% for post in posts %}
-        <hr class="post-divider" />
         <div class="post-wrapper">
           <h2 class="post-title">{{ post.title }}</h2>
           <h4 class="post-date">{{ post.created_at|strftime }}</h4>
+          <hr class="small-divider" />
           <p class="post-content">
             {{ post.content|safe }}
           </p>
+          <hr class="small-divider" />
         </div>
       {% endfor %}
     </div>
