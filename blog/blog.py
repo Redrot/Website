@@ -71,4 +71,4 @@ def index():
 @app.template_filter('strftime')
 def _jinja2_filter_datetime(date):
     parsed = datetime.strptime(date, '%Y-%m-%d')
-    return parsed.strftime('%b %-d')
+    return parsed.strftime('%b %d')
