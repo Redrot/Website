@@ -68,6 +68,38 @@ def index():
     return render_template('index.html', posts=posts)
 
 
+@app.route('/math')
+def math():
+    db = get_db()
+    cur = db.execute('select * from posts where type="math" order by id desc')
+    posts = cur.fetchall()
+    return render_template('math.html', posts=posts)
+
+
+@app.route('/music')
+def music():
+    db = get_db()
+    cur = db.execute('select * from posts where type="music" order by id desc')
+    posts = cur.fetchall()
+    return render_template('math.html', posts=posts)
+
+
+@app.route('/other')
+def other():
+    db = get_db()
+    cur = db.execute('select * from posts where type="other" order by id desc')
+    posts = cur.fetchall()
+    return render_template('math.html', posts=posts)
+
+
+@app.route('/about')
+def about():
+    db = get_db()
+    cur = db.execute('select * from posts where type="music" order by id desc')
+    posts = cur.fetchall()
+    return render_template('math.html', posts=posts)
+
+
 @app.template_filter('strftime')
 def _jinja2_filter_datetime(date):
     parsed = datetime.strptime(date, '%Y-%m-%d')

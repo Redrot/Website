@@ -63,7 +63,10 @@ p, span {
 .tab-container {
   display: flex;
   justify-content: flex-end;
-  margin: 32px;
+  margin: 16px;
+  padding: 16px;
+  align-self: flex-end;
+  background-color: white;
 }
 
 .tab-wrapper {
@@ -79,6 +82,10 @@ p, span {
   font-family: 'Lato', sans-serif;
   text-decoration: none;
   color: #343d46;
+}
+
+.tab:hover {
+  border-bottom: 1px solid #343d46;
 }
 
 .posts-container {
