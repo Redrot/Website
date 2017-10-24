@@ -1,20 +1,8 @@
-import os
 import sqlite3
 import markdown2
 from datetime import datetime
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
-
-app = Flask(__name__)
-app.config.from_object(__name__)
-
-app.config.update(dict(
-    DATABASE=os.path.join(app.root_path, 'blog.db'),
-    SECRET_KEY='development key',
-    USERNAME='admin',
-    PASSWORD='password'
-))
-app.config.from_envvar('SAM_BLOG_SETTINGS', silent=True)
-
+from blog import app
 
 def connect_db():
     rv = sqlite3.connect(app.config['DATABASE'])
