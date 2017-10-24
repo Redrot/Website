@@ -6,41 +6,29 @@ from blog import app
 @app.route('/')
 def index():
     db = get_db()
-    cur = db.execute('select * from posts order by id desc')
+    cur = db.execute('select * from posts order by id desc limit 5')
     posts = cur.fetchall()
     return render_template('index.html', posts=posts)
 
 
 @app.route('/math')
 def math():
-    db = get_db()
-    cur = db.execute('select * from posts where type="math" order by id desc')
-    posts = cur.fetchall()
-    return render_template('math.html', posts=posts)
+    return render_template('math.html')
 
 
 @app.route('/music')
 def music():
-    db = get_db()
-    cur = db.execute('select * from posts where type="music" order by id desc')
-    posts = cur.fetchall()
-    return render_template('math.html', posts=posts)
+    return render_template('music.html')
 
 
 @app.route('/other')
 def other():
-    db = get_db()
-    cur = db.execute('select * from posts where type="other" order by id desc')
-    posts = cur.fetchall()
-    return render_template('math.html', posts=posts)
+    return render_template('other.html')
 
 
 @app.route('/about')
 def about():
-    db = get_db()
-    cur = db.execute('select * from posts where type="music" order by id desc')
-    posts = cur.fetchall()
-    return render_template('math.html', posts=posts)
+    return render_template('about.html')
 
 
 @app.template_filter('strftime')

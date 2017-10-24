@@ -4,7 +4,6 @@ drop table if exists post_tags;
 
 create table posts (
   id integer primary key autoincrement,
-  type text not null,
   title text not null,
   short_title text not null,
   content text not null,
