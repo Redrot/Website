@@ -13,3 +13,4 @@ app.config.update(dict(
 app.config.from_envvar('SAM_BLOG_SETTINGS', silent=True)
 
 import blog.blog
+import blog.db
