@@ -14,7 +14,7 @@
       <em>- John Hope Franklin</em>
     </p>
   </div>
-  <div class="content-container">
+  <div class="content-container" id="home">
     <div class="tab-container">
       <div class="tab-wrapper"><a href="/" class="tab">HOME</a></div>
       <div class="tab-wrapper"><a href="/math" class="tab">MATH</a></div>
@@ -24,7 +24,7 @@
     </div>
     <div class="posts-container">
       {% for post in posts %}
-        <div class="post-wrapper">
+        <div class="post-wrapper" id="{{ post.id }}">
           <h2 class="post-title">{{ post.title }}</h2>
           <h5 class="post-date">{{ post.created_at|strftime }}</h4>
           <hr class="small-divider" />

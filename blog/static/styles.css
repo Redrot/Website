@@ -115,6 +115,7 @@ p, span {
 .post-title {
   color: #6d6d6d;
   text-transform: uppercase;
+  word-wrap: break-word;
 }
 
 .post-date {
@@ -125,4 +126,51 @@ p, span {
 .post-content {
   line-height: 24px;
   font: 112.5%;
+  word-wrap: break-word;
+}
+
+.create-post-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-post-button {
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin: 16px;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+}
+
+.create-post-button:hover {
+  border-bottom: 1px solid white;
+}
+
+.input-title {
+  background: none;
+  border: none;
+  outline: none;
+  max-width: 450px;
+  font-size: 20px;
+  font-family: 'Lora', serif;
+  width: 100%;
+  border-bottom: 1px solid #343d46;
+  color: white;
+  margin: 16px;
+  margin-top: 64px;
+}
+
+.fr-box {
+  width: 100%;
+  max-width: 900px;
+  margin: 16px;
+}
+
+#froala-editor {
+  height: 300px;
 }

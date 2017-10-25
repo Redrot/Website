@@ -7,8 +7,23 @@
 <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/plugins/image.min.css' rel='stylesheet' type='text/css' />
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
 <div class="wrapper">
-  <div id="froala-editor"></div>
-  <div id="preview" class="fr-view"></div>
+  <div class="header-container" style="margin-top: 16px">
+    <h1>Create Post</h1>
+  </div>
+  <form action="{{ url_for('create') }}" method="post" class="create-post-form">
+    <input name="title" placeholder="Title..." type="text" id="title" class="input-title"/>
+    <textarea name="content" id="froala-editor"></textarea>
+    <div class="content-container">
+      <div class="post-wrapper">
+        <h2 class="post-title" id="post-title"></h2>
+        <h5 class="post-date">{{ date|strftime }}</h5>
+        <hr class="small-divider" />
+        <p class="post-content" id="preview"></p>
+        <hr class="small-divider" />
+      </div>
+    </div>
+    <input type="submit" class="create-post-button" value="Create Post" />
+  </form>
 </div>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
@@ -29,10 +44,16 @@
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/js/plugins/align.min.js'></script>
 <script>
   $(function() {
-    $('div#froala-editor').froalaEditor()
-    .on('froalaEditor.contentChanged', function (e, editor) {
+    $('textarea#froala-editor').froalaEditor({ height: 300 })
+    .on('froalaEditor.contentChanged froalaEditor.initialized', function (e, editor) {
       $('#preview').html(editor.html.get());
       MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-    })
+    });
+
+    $('#title').keyup(function() {
+      $('#post-title').html($(this).val())
+    });
+
+    $('#post-title').html($('#title').val())
   });
 </script>

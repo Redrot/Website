@@ -33,7 +33,17 @@ def about():
 
 @app.route('/create')
 def create():
-    return render_template('create.html')
+    return render_template('create.html', date=str(datetime.date(datetime.now())))
+
+@app.route('/create', methods=['POST'])
+def create_entry():
+    db = get_db()
+    db.execute(
+        'insert into posts (title, short_title, content, created_at, updated_at) \
+        values (?, ?, ?, date(\'now\'), date(\'now\'))',
+        [request.form['title'], request.form['title'], request.form['content']])
+    db.commit()
+    return redirect(url_for('index'))
 
 
 @app.template_filter('strftime')
