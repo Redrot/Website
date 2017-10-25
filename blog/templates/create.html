@@ -4,9 +4,10 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/froala_style.min.css' rel='stylesheet' type='text/css' />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/plugins/image.min.css' rel='stylesheet' type='text/css' />
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
 <div class="wrapper">
-  <textarea id="froala-editor"></textarea>
+  <div id="froala-editor"></div>
   <div id="preview" class="fr-view"></div>
 </div>
 <script type="text/x-mathjax-config">
@@ -22,9 +23,13 @@
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/js/froala_editor.min.js'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/js/plugins/link.min.js'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/js/plugins/image.min.js'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/js/plugins/inline_style.min.js'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/js/plugins/align.min.js'></script>
 <script>
   $(function() {
-    $('textarea#froala-editor').froalaEditor()
+    $('div#froala-editor').froalaEditor()
     .on('froalaEditor.contentChanged', function (e, editor) {
       $('#preview').html(editor.html.get());
       MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
