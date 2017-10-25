@@ -1,0 +1,33 @@
+<!doctype html>
+<title>Sam's Page</title>
+<link href="https://fonts.googleapis.com/css?family=Lato|Lora" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/froala_style.min.css' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+<div class="wrapper">
+  <textarea id="froala-editor"></textarea>
+  <div id="preview" class="fr-view"></div>
+</div>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ [ '\$$','\$$' ], [ '\[;','\;]' ] ],
+      processEscapes: true,
+      ignoreClass: 'fr-element'
+    }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/js/froala_editor.min.js'></script>
+<script>
+  $(function() {
+    $('textarea#froala-editor').froalaEditor()
+    .on('froalaEditor.contentChanged', function (e, editor) {
+      $('#preview').html(editor.html.get());
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    })
+  });
+</script>

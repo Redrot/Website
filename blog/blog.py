@@ -31,6 +31,11 @@ def about():
     return render_template('about.html')
 
 
+@app.route('/create')
+def create():
+    return render_template('create.html')
+
+
 @app.template_filter('strftime')
 def _jinja2_filter_datetime(date):
     parsed = datetime.strptime(date, '%Y-%m-%d')
