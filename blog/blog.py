@@ -6,30 +6,9 @@ from blog import app
 @app.route('/')
 def index():
     db = get_db()
-    cur = db.execute('select * from posts order by id desc limit 5')
+    cur = db.execute('select * from posts order by id')
     posts = cur.fetchall()
     return render_template('index.html', posts=posts)
-
-
-@app.route('/math')
-def math():
-    return render_template('math.html')
-
-
-@app.route('/music')
-def music():
-    return render_template('music.html')
-
-
-@app.route('/other')
-def other():
-    return render_template('other.html')
-
-
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
 
 @app.route('/create')
 def create():
