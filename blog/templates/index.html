@@ -12,7 +12,17 @@
 
 <div id="content">
   <div class="container">
-    
+    {% for post in posts %}
+      <div class="post-wrapper" id="{{ post.id }}">
+        <h2 class="post-title">{{ post.title }}</h2>
+        <h5 class="post-date">{{ post.created_at|strftime }}</h4>
+        <hr class="small-divider" />
+        <p class="post-content">
+          {{ post.content|safe }}
+        </p>
+        <hr class="small-divider" />
+      </div>
+    {% endfor %}
   </div>
 </div>
 

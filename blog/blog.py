@@ -3,9 +3,13 @@ from datetime import datetime
 from flask import Flask, request, session, redirect, url_for, abort, render_template, flash
 from blog import app
 
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    db = get_db()
+    cur = db.execute('select * from posts')
+    posts = cur.fetchall()
+    return render_template('index.html', posts=posts)
 
 # @app.route('/create')
 # def create():
@@ -22,7 +26,9 @@ def index():
 #     return redirect(url_for('index'))
 #
 #
-# @app.template_filter('strftime')
-# def _jinja2_filter_datetime(date):
-#     parsed = datetime.strptime(date, '%Y-%m-%d')
-#     return parsed.strftime('%b %d, %Y')
+
+
+@app.template_filter('strftime')
+def _jinja2_filter_datetime(date):
+    parsed = datetime.strptime(date, '%Y-%m-%d')
+    return parsed.strftime('%b %d, %Y')
