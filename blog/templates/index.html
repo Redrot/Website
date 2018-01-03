@@ -1,13 +1,24 @@
 <!doctype html>
 <title>Sam's Page</title>
 <link href="https://fonts.googleapis.com/css?family=Lato|Lora" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}" />
+
+<!-- Content Starts Here -->
+<div id="header-block">
+  <a class="header-text" href="#content">
+    Sam Miller
+  </a>
+</div>
+
+<div id="content">
+  <div class="container">
+    
+  </div>
+</div>
 
 <!-- Particles Header -->
 <div id="particles-js"></div>
-<script type="text/javascript" src="{{ url_for('static', filename='particles.min.js') }}"></script>
-
-
+<script type="text/javascript" src="{{ url_for('static', filename='js/particles.min.js') }}"></script>
 
 <!-- MathJax -->
 <script type="text/x-mathjax-config">
@@ -15,3 +26,6 @@
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
+<!-- Main JS -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>

@@ -11,6 +11,7 @@ app.config.update(dict(
     PASSWORD='password'
 ))
 app.config.from_envvar('SAM_BLOG_SETTINGS', silent=True)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 import blog.blog
 import blog.db

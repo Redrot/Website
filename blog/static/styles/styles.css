@@ -1,0 +1,52 @@
+html, body {
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#particles-js {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(../assets/canoe.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#header-block {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-text {
+  font-family: 'Lora';
+  font-size: 64px;
+  color: white;
+  padding: 8px 16px;
+  border: 1px solid white;
+  z-index: 1;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.header-text:hover {
+  background-color: rgba(200, 200, 200, 0.3);
+}
+
+#content {
+  width: 100%;
+  background-color: #EDEDED;
+  height: 1000px;
+}
+
+.container {
+  width: 1080px;
+  margin: 0
+}
