@@ -5,7 +5,7 @@
 
 <!-- Content Starts Here -->
 <div id="header-block">
-  <a class="header-text" href="#content">
+  <a data-scroll class="header-text" href="#content">
     Sam Miller
   </a>
 </div>
@@ -16,12 +16,11 @@
       <div class="post-wrapper" id="{{ post.id }}">
         <h2 class="post-title">{{ post.title }}</h2>
         <h5 class="post-date">{{ post.created_at|strftime }}</h4>
-        <hr class="small-divider" />
         <p class="post-content">
           {{ post.content|safe }}
         </p>
-        <hr class="small-divider" />
       </div>
+      <hr class="small-divider" />
     {% endfor %}
   </div>
 </div>
@@ -36,6 +35,9 @@
 </script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
+<!-- Smooth Scroll -->
+<script type="text/javascript" src="{{ url_for('static', filename='js/smooth-scroll.js') }}"></script>
 
 <!-- Main JS -->
 <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
