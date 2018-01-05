@@ -13,7 +13,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  color: white;
   font-size: 350%;
 }
 
@@ -69,6 +68,15 @@ p, span {
   justify-content: center;
 }
 
+.wrapper {
+  margin: 16px auto;
+  width: 100%;
+  max-width: 1080px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .container {
   width: 1080px;
   margin: 0;
@@ -117,4 +125,19 @@ p, span {
 
 .small-divider {
   margin: 0 32px;
+}
+
+.create-post-form {
+  margin: 8px 16px;
+  width: calc(100% - 32px);
+}
+
+.input-title {
+  margin: 8px;
+  width: calc(100% - 16px);
+  font-size: 16px;
+  font-family: 'Lora';
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #6d6d6d;
 }

@@ -5,7 +5,7 @@
 <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/froala_style.min.css' rel='stylesheet' type='text/css' />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.0/css/plugins/image.min.css' rel='stylesheet' type='text/css' />
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}" />
 <div class="wrapper">
   <div class="header-container" style="margin-top: 16px">
     <h1>Create Post</h1>
@@ -17,7 +17,6 @@
       <div class="post-wrapper">
         <h2 class="post-title" id="post-title"></h2>
         <h5 class="post-date">{{ date|strftime }}</h5>
-        <hr class="small-divider" />
         <p class="post-content" id="preview"></p>
         <hr class="small-divider" />
       </div>
